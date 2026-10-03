@@ -117,7 +117,7 @@ export default function App() {
 
   // Evasive No Button dodge logic (Optimized for iOS touch & Desktop mouse)
   const moveNoButton = () => {
-    if (!evasiveNo && noCount < 2) return;
+    if (!evasiveNo && noCount < 7) return;
 
     playDodgeSound();
 
@@ -151,7 +151,7 @@ export default function App() {
       }
     }
 
-    if (evasiveNo || noCount >= 1) {
+    if (evasiveNo || noCount >= 7) {
       moveNoButton();
     }
   };
@@ -388,14 +388,7 @@ export default function App() {
               <button
                 onClick={handleNoClick}
                 onMouseEnter={() => {
-                  if (evasiveNo) moveNoButton();
-                }}
-                onTouchStart={(e) => {
-                  if (evasiveNo || noCount >= 2) {
-                    e.preventDefault();
-                    moveNoButton();
-                    handleNoClick();
-                  }
+                  if (evasiveNo || noCount >= 7) moveNoButton();
                 }}
                 className={`rounded-2xl font-bold text-white transition-all duration-200 shadow-md hover:bg-rose-600 bg-rose-500 text-xs sm:text-sm px-4 py-2.5 z-10 select-none cursor-pointer active:scale-95 ${
                   noButtonPos ? 'fixed transition-all duration-150 ease-out' : 'relative'
