@@ -233,7 +233,7 @@ export default function App() {
   return (
     <div
       ref={containerRef}
-      className={`relative min-h-[100dvh] w-full flex flex-col items-center justify-between px-3 sm:px-6 py-4 transition-colors duration-700 select-none bg-gradient-to-br ${themeConfig.bgGradient} overflow-x-hidden`}
+      className={`relative min-h-[100dvh] w-full flex flex-col items-center justify-between px-3 sm:px-6 py-4 transition-colors duration-700 bg-gradient-to-br ${themeConfig.bgGradient} overflow-x-hidden`}
       style={{
         paddingTop: 'max(4.5rem, calc(env(safe-area-inset-top, 0px) + 3.8rem))',
         paddingBottom: 'max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))',

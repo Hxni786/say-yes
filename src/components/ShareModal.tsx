@@ -82,11 +82,13 @@ export const ShareModal = ({
   const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(currentPreset.question + ' 💖')}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-sm animate-fade-in select-auto">
       <div
-        className="relative w-full max-w-md rounded-t-3xl sm:rounded-3xl bg-white p-5 sm:p-7 shadow-2xl border border-rose-100/80 text-gray-800 animate-slide-up"
+        className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-white p-5 sm:p-7 shadow-2xl border border-rose-100/80 text-gray-800 animate-slide-up overscroll-contain"
         style={{
           paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom, 1rem))',
+          WebkitOverflowScrolling: 'touch',
+          touchAction: 'pan-y',
         }}
       >
         {/* iOS Drag Handle on Mobile */}

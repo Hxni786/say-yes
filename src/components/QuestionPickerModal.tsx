@@ -83,9 +83,9 @@ export const QuestionPickerModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-sm animate-fade-in select-auto">
       <div
-        className="relative w-full max-w-2xl max-h-[92dvh] sm:max-h-[85vh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-rose-100 overflow-hidden text-gray-800"
+        className="relative w-full max-w-2xl h-[88dvh] sm:h-[82vh] max-h-[88dvh] sm:max-h-[82vh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-rose-100 overflow-hidden text-gray-800"
         style={{
           paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
         }}
@@ -136,7 +136,10 @@ export const QuestionPickerModal = ({
             />
           </div>
 
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs font-semibold">
+          <div
+            className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs font-semibold"
+            style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+          >
             <button
               onClick={() => setSelectedCategory('all')}
               className={`px-3 py-1.5 rounded-xl whitespace-nowrap transition-all cursor-pointer ${
@@ -176,7 +179,10 @@ export const QuestionPickerModal = ({
         </div>
 
         {/* Question Grid or Custom Builder */}
-        <div className="p-4 sm:p-6 overflow-y-auto max-h-[60dvh] flex-1 bg-gray-50/60 -webkit-overflow-scrolling-touch">
+        <div
+          className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 bg-gray-50/60 overscroll-contain"
+          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
+        >
           {selectedCategory === 'custom' ? (
             <form onSubmit={handleCreateCustom} className="space-y-4 max-w-lg mx-auto bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
               <div className="flex items-center gap-2 text-rose-600 font-bold text-sm">

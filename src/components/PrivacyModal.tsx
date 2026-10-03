@@ -9,9 +9,9 @@ export const PrivacyModal = ({ isOpen, onClose }: PrivacyModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-sm animate-fade-in select-auto">
       <div
-        className="relative w-full max-w-lg max-h-[90dvh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-rose-100 overflow-hidden text-gray-800"
+        className="relative w-full max-w-lg h-[85dvh] sm:h-auto sm:max-h-[85vh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-rose-100 overflow-hidden text-gray-800"
         style={{
           paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
         }}
@@ -44,7 +44,10 @@ export const PrivacyModal = ({ isOpen, onClose }: PrivacyModalProps) => {
         </div>
 
         {/* Policy Content */}
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-gray-600 -webkit-overflow-scrolling-touch leading-relaxed">
+        <div
+          className="p-5 sm:p-6 overflow-y-auto flex-1 min-h-0 space-y-4 text-xs sm:text-sm text-gray-600 overscroll-contain leading-relaxed"
+          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
+        >
           <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-start gap-2.5">
             <Lock className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
